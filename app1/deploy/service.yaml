@@ -5,6 +5,8 @@ metadata:
 spec:
   ports:
     - name: certificates-demo-app1-https
-      port: 8443
+      port: 443
+      targetPort: 8443
   selector:
     app: certificates-demo-app1
+  type: LoadBalancer

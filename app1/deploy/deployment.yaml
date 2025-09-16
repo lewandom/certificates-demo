@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: certificates-demo-app1
+spec:
+  selector:
+    matchLabels:
+      app: certificates-demo-app1
+  template:
+    metadata:
+      labels:
+        app: certificates-demo-app1
+    spec:
+      enableServiceLinks: false
+      containers:
+        - name: certificates-demo-app1
+          image: localhost:5000/certificates-demo-app1:latest
+          volumeMounts:
+            - name: config
+              mountPath: /work/config
+            - name: tls
+              mountPath: /work/config/tls
+      volumes:
+        - name: config
+          configMap:
+            name: certificates-demo-app1-properties
+        - name: tls
+          secret:
+            secretName: certificates-demo-app1-tls

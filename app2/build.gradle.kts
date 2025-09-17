@@ -1,1 +1,3 @@
-
+dependencies {
+    implementation("io.quarkus:quarkus-rest-client")
+}

@@ -8,7 +8,7 @@ chmod 0700 private/
 openssl genpkey -out private/server.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -aes-128-cbc
 openssl req -new -config server.conf -key private/server.key -out server.csr
 pushd ../../../ca/sub-ca/
-openssl ca -config sub-ca.conf -in ../../app1/deploy/tls/server.csr -out ../../app1/deploy/tls/server.crt -extensions server_ext
+openssl ca -config sub-ca.conf -in ../../app2/deploy/tls/server.csr -out ../../app2/deploy/tls/server.crt -extensions server_ext
 popd
 ```
 

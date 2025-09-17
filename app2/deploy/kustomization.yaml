@@ -1,11 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 configMapGenerator:
-  - name: certificates-demo-app1-properties
+  - name: certificates-demo-app2-properties
     files:
       - application.properties
 secretGenerator:
-  - name: certificates-demo-app1-tls
+  - name: certificates-demo-app2-tls
     files:
       - tls/tls.crt
       - tls/tls.key

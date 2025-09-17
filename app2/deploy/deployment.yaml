@@ -2,20 +2,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: certificates-demo-app1
+  name: certificates-demo-app2
 spec:
   selector:
     matchLabels:
-      app: certificates-demo-app1
+      app: certificates-demo-app2
   template:
     metadata:
       labels:
-        app: certificates-demo-app1
+        app: certificates-demo-app2
     spec:
       enableServiceLinks: false
       containers:
-        - name: certificates-demo-app1
-          image: localhost:5000/certificates-demo-app1:latest
+        - name: certificates-demo-app2
+          image: localhost:5000/certificates-demo-app2:latest
           imagePullPolicy: Always
           volumeMounts:
             - name: config
@@ -25,7 +25,7 @@ spec:
       volumes:
         - name: config
           configMap:
-            name: certificates-demo-app1-properties
+            name: certificates-demo-app2-properties
         - name: tls
           secret:
-            secretName: certificates-demo-app1-tls
+            secretName: certificates-demo-app2-tls

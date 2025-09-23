@@ -1,4 +1,6 @@
-Steps to generate Root CA:
+# Root CA
+
+## Steps to generate Root CA:
 
 ```
 # initialize directory structure
@@ -11,4 +13,10 @@ echo 1001 > db/crlnumber
 openssl req -new -config root-ca.conf -out root-ca.csr -keyout private/root-ca.key
 # self-sign root certificate
 openssl ca -selfsign -config root-ca.conf -in root-ca.csr -out root-ca.crt -extensions ca_ext
+```
+
+## Steps to build base image that contains the root certificate
+
+```
+podman build -t example.com/ubi9-quarkus-micro-image:latest .
 ```

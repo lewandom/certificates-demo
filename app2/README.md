@@ -18,9 +18,6 @@ Tested with native Quarkus build. Run the commands from within project root.
    ```
 2. Build container image:
    ```
-   # copy root CA certificate into container image build context
-   cp ca/root-ca/root-ca.crt app2/src/main/docker/ca/root-ca.crt
-   # build the image
    podman build -f app2/src/main/docker/Dockerfile.native-micro \
      -t $(minikube ip):5000/certificates-demo-app2 app2/
    ```

@@ -8,11 +8,11 @@ clear
 # enters interactive mode and allows newly typed command to be executed
 cmd
 
-# generate private key
-pe "cd app1/deploy/tls"
-pe ""
+# make directory structure
+pei "cd app1/deploy/tls/"
 pei "mkdir -p private"
 pei "chmod 0700 private/"
+# generate private key
 pei ""
 pe "openssl genpkey -out private/server.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -aes-128-cbc"
 pe "cat private/server.key"

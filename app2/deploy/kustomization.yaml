@@ -10,6 +10,9 @@ secretGenerator:
       - tls/tls.crt
       - tls/tls.key
     type: kubernetes.io/tls
+generatorOptions:
+  labels:
+    app: app2
 resources:
   - deployment.yaml
   - service.yaml
